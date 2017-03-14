@@ -16,7 +16,7 @@
 		</div>
 		<div class="section-input class="budgetInput"s">
 			<label>label</label>
-			<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+			<input class="budgetInput" type="number"" placeholder="0.00" />
 		</div>
 	</div>
 	<div class="section">

@@ -1,0 +1,41 @@
+body {
+	font-size: 1.5em;
+}
+
+#mainApp {
+	border-radius: 5px;
+	padding:10px;
+	background-color:#A0522D;
+	width:40%;
+	border-radius:5px;
+	margin:0 auto;
+}
+
+.section {
+	background-color:white;
+	padding: 5px; 
+	margin: 5px;
+	border-radius:5px;
+}
+
+.section-title {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.arrow {	
+	display: inline-block;
+	float: right;
+	-webkit-transform: rotate(90deg) scaleY(-1);
+	-moz-transform: rotate(90deg) scaleY(-1);
+	-o-transform: rotate(90deg) scaleY(-1); 
+	transform: rotate(90deg) scaleY(-1);
+}
+
+.section-inputs {
+	padding:10px;
+}
+
+.section-inputs > input {
+	float:right;
+}

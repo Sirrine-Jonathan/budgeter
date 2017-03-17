@@ -1,21 +1,42 @@
-body {
-	font-size: 1.5em;
+html, body {
+	font-size: 1.2em;
+	background-image:URL('http://i.imgur.com/bgkdbSo.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+	overflow-y:hidden;
+	height:100%;
 }
 
-#mainApp {
-	border-radius: 5px;
-	padding:10px;
-	background-color:#A0522D;
-	width:40%;
-	border-radius:5px;
+#outer-wrapper {
+	height:100%;
+}
+
+#content-wrapper {
+	display: block;
+	overflow-y: scroll;
+	height:100%;
+	width:35%;
 	margin:0 auto;
 }
 
+#mainApp {
+	box-sizing:border-box;
+	font-family: 'Titillium Web', sans-serif;
+	margin:20px 0 20px 0;
+}
+
+h2 {
+	margin:5px;
+}
+
 .section {
-	background-color:white;
+	background-color:black;
+	opacity:0.6;
+	color:white;
 	padding: 5px; 
 	margin: 5px;
 	border-radius:5px;
+	box-shadow:2 2 5
 }
 
 .section-title {
@@ -32,6 +53,62 @@ body {
 	transform: rotate(90deg) scaleY(-1);
 }
 
-.section-inputs {
+.section-input {
+	display:block;
 	padding:10px;
+}
+
+.section-input input, .total {
+	float: right;
+	
+}
+
+label, .budgetInput {
+	width:40%;
+}
+
+/*SCROLL BAR STYLINGS*/
+
+#content-wrapper::-webkit-scrollbar {
+	background-color:none;
+	
+}
+
+
+#content-wrapper::-webkit-scrollbar-button {
+	color:blue;
+	background-color:blue;
+}
+
+/*
+#content-wrapper::-webkit-scrollbar-track
+*/
+#content-wrapper::-webkit-scrollbar-track-piece {
+	background-color:blue;
+}
+
+/*
+#content-wrapper::-webkit-scrollbar-thumb 
+#content-wrapper::-webkit-scrollbar-corner 
+#content-wrapper::-webkit-resizer
+
+/*SCROLL BAR STYLINGS END*/
+	
+
+@media (max-width: 900px) {
+	#content-wrapper {
+		width:50%;
+	}
+}
+
+@media (max-width: 700px) {
+	#content-wrapper {
+		width:60%;
+	}
+}
+
+@media (max-width: 500px) {
+	#content-wrapper {
+		width:100%;
+	}
 }

@@ -10,9 +10,10 @@
 <div id="login">
 
 </div>
-<div id="outer-wrapper">
-	<div id="content-wrapper">
+<div class="outer-wrapper">
+	<div class="content-wrapper">
 		<div id="mainApp">
+			<h1 id="monthDisplay"></h1>
 			<h2>Income<span id="incomeTotal" class="total">0.00</span></h2>
 			<div class="section">
 				<div class="section-title">Person 1
@@ -127,9 +128,41 @@
 				</div>
 			</div>
 			
-			<div class="section">
+			<div class="balanceSection">
 				<h2>Balance<span id="balanceTotal" class="total">0.00</span></h2>
 			</div>
+		</div>
+	</div>
+</div>
+<div class="outer-wrapper" style="float:right;">
+	<div class="content-wrapper">
+		<div id="mainApp">
+			<div class="section">
+			<h2>Controls</h2>
+			<label>Month</label>
+			<select name="month" id="month">
+				<option value="Jan">January</option>
+				<option value="Feb">February</option>
+				<option value="Mar">March</option>
+				<option value="Apr">April</option>
+				<option value="May">May</option>
+				<option value="Jun">June</option>
+				<option value="Jul">July</option>
+				<option value="Aug">August</option>
+				<option value="Oct">October</option>
+				<option value="Sep">September</option>
+				<option value="Nov">November</option>
+				<option value="Dec">December</option>
+			</select>
+			<div class="btn" id="save">save</div>
+			</div>
+			<div class="section">
+			<h2>Tips</h2>
+			</div>
+			<div class="section">
+			<h2>Graph</h2>
+				<canvas>hey</canvas>
+			</div>			
 		</div>
 	</div>
 </div>

@@ -92,6 +92,10 @@ label, .budgetInput {
 	background-color:grey;
 }
 
+#canvas {
+	background-color:white;
+}
+
 @media (max-width: 800px) {
 	.outer-wrapper {
 		width:100%;

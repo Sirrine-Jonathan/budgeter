@@ -89,7 +89,6 @@ window.onload = function(){
 		On month change
 	*/
 	document.getElementById('month').addEventListener('change', function(){
-		console.log(this.innerHTML);
 		document.getElementById('monthDisplay').innerHTML = this.value+' budget';
 	});
 	
@@ -112,23 +111,43 @@ window.onload = function(){
 	function handleNewAdvice(adviceJson){
 		var adviceObj = JSON.parse(adviceJson);
 		var advice = adviceObj.slip.advice;
-		console.log(advice);
 		document.getElementById('advice').innerHTML = advice;
 	}
 	
 	/*
 		background change
 	*/
+	var curIndex = 0;
+	var backgrounds = ["http://i.imgur.com/bgkdbSo.jpg"];
 	document.getElementById('changeBackground').addEventListener('click', function(){
 		var url = document.getElementById('backgroundURL').value;
+		
+		//find current url
+		var curURL = document.getElementsByTagName('html')[0].style.backgroundImage;
+		if(curURL === ""){curURL = "http://i.imgur.com/bgkdbSo.jpg"}
+		else{curURL = curURL.split('"')[1]}
+		console.log(curURL);
+		var index = backgrounds.indexOf(curURL);
+		curIndex = index+1;
+		backgrounds.splice(curIndex, 0, url);
+		
+		//backgrounds.push(url);
 		document.getElementsByTagName('html')[0].style.backgroundImage = 'URL('+url+')';
 		document.getElementsByTagName('body')[0].style.backgroundImage = 'URL('+url+')';		
 	});
 	
 	document.getElementById('undoBackground').addEventListener('click', function(){
-		var url = 'http://i.imgur.com/bgkdbSo.jpg';
+		var url;
+		if(curIndex - 1 >= 0){
+			url = backgrounds[curIndex - 1];
+			curIndex--;
+		}
+		else{
+			url = backgrounds[backgrounds.length - 1];
+			curIndex = backgrounds.length - 1;
+		}
 		document.getElementsByTagName('body')[0].style.backgroundImage = 'URL('+url+')';
-		document.getElementsByTagName('html')[0].style.backgroundImage = 'URL('+url+')';		
+		document.getElementsByTagName('html')[0].style.backgroundImage = 'URL('+url+')';	
 	});
 	
 	/*

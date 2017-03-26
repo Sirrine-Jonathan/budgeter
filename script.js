@@ -106,7 +106,7 @@ window.onload = function(){
 		req.send();
 	}
 	getNewAdvice();
-	var handle = setInterval(getNewAdvice, 1000 * 60);
+	var handle = setInterval(getNewAdvice, 2000 * 60);
 	
 	function handleNewAdvice(adviceJson){
 		var adviceObj = JSON.parse(adviceJson);

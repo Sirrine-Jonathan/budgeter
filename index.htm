@@ -2,13 +2,13 @@
 <html>
 <head>
 <script src="script.js"></script>
-<script src="graph.js"></script>
+<!--<script src="graph.js"></script>-->
 <link href="style.css" rel="stylesheet"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 </head>
 <body>
-<div id="login">
+<div id="login-wrapper">
 
 </div>
 <div class="outer-wrapper">
@@ -24,11 +24,11 @@
 				<div class="section-input">
 					<div>
 						<label>Salary</label>
-						<input class="budgetInput" data-type="income" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="income" type="number" placeholder="0.00" />
 					</div>
 					<div>
 						<label>Other</label>
-						<input class="budgetInput" data-type="income" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="income" type="number" placeholder="0.00" />
 					</div>
 				</div>
 			</div>
@@ -40,15 +40,15 @@
 				<div class="section-input">
 					<div>
 						<label>Rent/Mortgage</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 					<div>
 						<label>Gas</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 					<div>
 						<label>Electric</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 				</div>
 			</div>
@@ -59,15 +59,15 @@
 				<div class="section-input">
 					<div>
 						<label>Movies</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 					<div>
 						<label>Games</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 					<div>
 						<label>Other</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 				</div>
 			</div>
@@ -78,15 +78,15 @@
 				<div class="section-input">
 					<div>
 						<label>Movies</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 					<div>
 						<label>Games</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 					<div>
 						<label>Other</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 				</div>
 			</div>
@@ -97,15 +97,15 @@
 				<div class="section-input">
 					<div>
 						<label>Movies</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 					<div>
 						<label>Games</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 					<div>
 						<label>Other</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 				</div>
 			</div>
@@ -116,21 +116,36 @@
 				<div class="section-input">
 					<div>
 						<label>Movies</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 					<div>
 						<label>Games</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 					<div>
 						<label>Other</label>
-						<input class="budgetInput" data-type="expense" type="number"" placeholder="0.00" />
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
 					</div>
 				</div>
 			</div>
 			
 			<div class="balanceSection">
 				<h2>Balance<span id="balanceTotal" class="total">0.00</span></h2>
+			</div>
+			
+			<div class="section">
+				<h2 class="section-title" style="text-decoration:none;">Create Custom Section
+					<span class="arrow">&#10149;</span>
+				</h2>
+				<div class="section-input">
+					<div>
+						<label style="text-decoration: underline">Section Title</label>
+						<input class="customInput" type="text" placeholder="title" />
+					</div>
+					<div>
+						<label>sub
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

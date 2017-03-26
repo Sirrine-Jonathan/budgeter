@@ -52,8 +52,25 @@ h2 {
 }
 
 .section-title {
-	text-decoration: underline;
 	cursor: pointer;
+	text-decoration:none;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+#addSubBtn { 
+	display:inline-block;
+	box-sizing:border-box;
+	width:48%; 
+}
+
+#subSubBtn {
+	display:inline-block; 
+	box-sizing:border-box;
+	width:48%; 
+	float:right;
 }
 
 .arrow {	
@@ -75,9 +92,12 @@ h2 {
 	
 }
 
-label, .budgetInput {
+label, .budgetInput, .customInput {
 	width:40%;
+	vertical-align:bottom;
 }
+
+
 
 .btn {
 	display:inline-block;
@@ -90,10 +110,6 @@ label, .budgetInput {
 
 .btn:hover {
 	background-color:grey;
-}
-
-#canvas {
-	background-color:white;
 }
 
 @media (max-width: 800px) {
@@ -110,3 +126,4 @@ label, .budgetInput {
 		overflow-y: scroll;
 	}
 }
+ 

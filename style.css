@@ -1,11 +1,50 @@
 html, body {
 	font-size: 1.2em;
-	background-image:URL('http://i.imgur.com/bgkdbSo.jpg');
 	background-repeat:no-repeat;
 	background-size:cover;
 	overflow-y:hidden;
 	height:100%;
 }
+
+body {
+	background-image:URL('http://i.imgur.com/bgkdbSo.jpg');
+}
+
+#budgeter5000 {
+	display:none;
+	height:100%;
+	width:100%;
+}
+
+
+#login-wrapper {
+	background-color:rgba(0,0,0,0.3);
+	color:white;
+	padding: 5px; 
+	margin: 5px;
+	border-radius:5px;
+	box-shadow:2 2 5 4 black;
+	text-align:center;
+	height:100%;
+}
+
+input[type="text"], input[type="password"] {
+	padding: 10px;
+	border: none;
+	border-bottom: solid 2px #c9c9c9;
+	transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+	border-bottom: solid 2px #969696;
+	outline:none;
+}
+
+input {
+	outline:none;
+}
+
 
 .outer-wrapper {
 	display:inline-block;
@@ -21,7 +60,7 @@ html, body {
 	margin:0 auto;
 }
 
-#mainApp {
+#mainAppOne, #mainAppTwo  {
 	box-sizing:border-box;
 	font-family: 'Titillium Web', sans-serif;
 	margin:20px 0 20px 0;
@@ -32,7 +71,16 @@ h2 {
 }
 
 .section {
-	background-color:black;
+	background-color:rgba(0,0,0,0.3);
+	color:white;
+	padding: 5px; 
+	margin: 5px;
+	border-radius:5px;
+	box-shadow:2 2 5 4 black;
+}
+
+#balanceSection {
+	background-color:dark-grey;
 	opacity:0.6;
 	color:white;
 	padding: 5px; 
@@ -41,14 +89,8 @@ h2 {
 	box-shadow:2 2 5 4 black;
 }
 
-.balanceSection {
-	background-color:dark-grey;
-	opacity:0.6;
-	color:white;
-	padding: 5px; 
-	margin: 5px;
-	border-radius:5px;
-	box-shadow:2 2 5 4 black;
+#appTitle {
+	font-size:5em;
 }
 
 .section-title {
@@ -63,14 +105,11 @@ h2 {
 #addSubBtn { 
 	display:inline-block;
 	box-sizing:border-box;
-	width:48%; 
 }
 
 #subSubBtn {
 	display:inline-block; 
 	box-sizing:border-box;
-	width:48%; 
-	float:right;
 }
 
 .arrow {	
@@ -100,16 +139,33 @@ label, .budgetInput, .customInput {
 
 
 .btn {
-	display:inline-block;
-	background-color:black;
-	border:1px solid grey;
-	border-radius:5px;
-	padding:0 10px 0 10px;
-	cursor:pointer;
+	display: inline-block;
+	border: 1px solid lightgrey;
+	box-shadow: 1px 2px 0 0 black;
+	border-radius: 5px;
+	padding: 0 10px 0 10px;
+	margin: 3px;
+	cursor: pointer;
+	transition: background-color 1.5s ease-in;
+	transition: box-shadow 1s;
+}
+
+input[type="range"] {
+	margin-left: 10px;
 }
 
 .btn:hover {
-	background-color:grey;
+	background-color:rgba(0,0,0,0.2);
+	box-shadow:3px 4px 0 0 black;
+}
+#canvas {
+	background-color:white;
+	display:block;
+	margin:0 auto;
+}
+
+#graphSettings {
+	text-align:center;
 }
 
 @media (max-width: 800px) {

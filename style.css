@@ -1,11 +1,50 @@
 html, body {
 	font-size: 1.2em;
-	background-image:URL('http://i.imgur.com/bgkdbSo.jpg');
 	background-repeat:no-repeat;
 	background-size:cover;
 	overflow-y:hidden;
 	height:100%;
 }
+
+body {
+	background-image:URL('http://i.imgur.com/bgkdbSo.jpg');
+}
+
+#budgeter5000 {
+	display:none;
+	height:100%;
+	width:100%;
+}
+
+
+#login-wrapper {
+	background-color:rgba(0,0,0,0.3);
+	color:white;
+	padding: 5px; 
+	margin: 5px;
+	border-radius:5px;
+	box-shadow:2 2 5 4 black;
+	text-align:center;
+	height:100%;
+}
+
+input[type="text"], input[type="password"] {
+	padding: 10px;
+	border: none;
+	border-bottom: solid 2px #c9c9c9;
+	transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+	border-bottom: solid 2px #969696;
+	outline:none;
+}
+
+input {
+	outline:none;
+}
+
 
 .outer-wrapper {
 	display:inline-block;
@@ -48,6 +87,10 @@ h2 {
 	margin: 5px;
 	border-radius:5px;
 	box-shadow:2 2 5 4 black;
+}
+
+#appTitle {
+	font-size:5em;
 }
 
 .section-title {
@@ -101,9 +144,14 @@ label, .budgetInput, .customInput {
 	box-shadow: 1px 2px 0 0 black;
 	border-radius: 5px;
 	padding: 0 10px 0 10px;
+	margin: 3px;
 	cursor: pointer;
 	transition: background-color 1.5s ease-in;
 	transition: box-shadow 1s;
+}
+
+input[type="range"] {
+	margin-left: 10px;
 }
 
 .btn:hover {

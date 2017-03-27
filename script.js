@@ -10,6 +10,37 @@ window.onload = function(){
 	}
 	
 	/*
+		Login Btn
+	*/
+	document.getElementById('loginBtn').addEventListener('click', function(){
+		
+		/*
+			Success
+		*/
+		//load user data
+		//do animation
+		
+		setTimeout(function(){
+			document.getElementById('login-wrapper').style.display = 'none';
+			document.getElementById('budgeter5000').style.display = 'inline-block';
+		}, 1000);
+		
+		/*
+			Fail
+		*/
+	});
+	
+	/*
+		Logout Btn
+	*/
+	document.getElementById('logoutBtn').addEventListener('click', function(){
+		
+		//prompt to save user data
+		document.getElementById('login-wrapper').style.display = 'block';
+		document.getElementById('budgeter5000').style.display = 'none';
+	});
+	
+	/*
 		Toggle section display
 	*/
 	document.getElementById('mainAppOne').style.maxHeight = (window.innerHeight - 50);

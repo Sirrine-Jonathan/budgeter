@@ -1,25 +1,66 @@
 html, body {
 	font-size: 1.2em;
-	background-image:URL('http://i.imgur.com/bgkdbSo.jpg');
 	background-repeat:no-repeat;
 	background-size:cover;
 	overflow-y:hidden;
 	height:100%;
 }
 
-#outer-wrapper {
+body {
+	background-image:URL('http://i.imgur.com/bgkdbSo.jpg');
+}
+
+#budgeter5000 {
+	display:none;
+	height:100%;
+	width:100%;
+}
+
+
+#login-wrapper {
+	background-color:rgba(0,0,0,0.3);
+	color:white;
+	padding: 5px; 
+	margin: 5px;
+	border-radius:5px;
+	box-shadow:2 2 5 4 black;
+	text-align:center;
 	height:100%;
 }
 
-#content-wrapper {
+input[type="text"], input[type="password"] {
+	padding: 10px;
+	border: none;
+	border-bottom: solid 2px #c9c9c9;
+	transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+	border-bottom: solid 2px #969696;
+	outline:none;
+}
+
+input {
+	outline:none;
+}
+
+
+.outer-wrapper {
+	display:inline-block;
+	height:100%;
+	width:49%;
+}
+
+.content-wrapper {
 	display: block;
 	overflow-y: scroll;
 	height:100%;
-	width:35%;
+	width:100%;
 	margin:0 auto;
 }
 
-#mainApp {
+#mainAppOne, #mainAppTwo  {
 	box-sizing:border-box;
 	font-family: 'Titillium Web', sans-serif;
 	margin:20px 0 20px 0;
@@ -30,27 +71,54 @@ h2 {
 }
 
 .section {
-	background-color:black;
+	background-color:rgba(0,0,0,0.3);
+	color:white;
+	padding: 5px; 
+	margin: 5px;
+	border-radius:5px;
+	box-shadow:2 2 5 4 black;
+}
+
+#balanceSection {
+	background-color:dark-grey;
 	opacity:0.6;
 	color:white;
 	padding: 5px; 
 	margin: 5px;
 	border-radius:5px;
-	box-shadow:2 2 5
+	box-shadow:2 2 5 4 black;
+}
+
+#appTitle {
+	font-size:5em;
 }
 
 .section-title {
-	text-decoration: underline;
 	cursor: pointer;
+	text-decoration:none;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+#addSubBtn { 
+	display:inline-block;
+	box-sizing:border-box;
+}
+
+#subSubBtn {
+	display:inline-block; 
+	box-sizing:border-box;
 }
 
 .arrow {	
 	display: inline-block;
 	float: right;
-	-webkit-transform: rotate(90deg) scaleY(-1);
-	-moz-transform: rotate(90deg) scaleY(-1);
-	-o-transform: rotate(90deg) scaleY(-1); 
-	transform: rotate(90deg) scaleY(-1);
+	-webkit-transform: rotate(270deg) scaleY(-1);
+	-moz-transform: rotate(270deg) scaleY(-1);
+	-o-transform: rotate(270deg) scaleY(-1); 
+	transform: rotate(270deg) scaleY(-1);
 }
 
 .section-input {
@@ -63,25 +131,55 @@ h2 {
 	
 }
 
-label, .budgetInput {
+label, .budgetInput, .customInput {
 	width:40%;
-}
-	
-
-@media (max-width: 900px) {
-	#content-wrapper {
-		width:50%;
-	}
+	vertical-align:bottom;
 }
 
-@media (max-width: 700px) {
-	#content-wrapper {
-		width:60%;
-	}
+
+
+.btn {
+	display: inline-block;
+	border: 1px solid lightgrey;
+	box-shadow: 1px 2px 0 0 black;
+	border-radius: 5px;
+	padding: 0 10px 0 10px;
+	margin: 3px;
+	cursor: pointer;
+	transition: background-color 1.5s ease-in;
+	transition: box-shadow 1s;
 }
 
-@media (max-width: 500px) {
-	#content-wrapper {
+input[type="range"] {
+	margin-left: 10px;
+}
+
+.btn:hover {
+	background-color:rgba(0,0,0,0.2);
+	box-shadow:3px 4px 0 0 black;
+}
+#canvas {
+	background-color:white;
+	display:block;
+	margin:0 auto;
+}
+
+#graphSettings {
+	text-align:center;
+}
+
+@media (max-width: 800px) {
+	.outer-wrapper {
 		width:100%;
 	}
+	
+	.content-wrapper {
+		height:auto;
+		overflow-y:auto;
+	}
+	
+	body {
+		overflow-y: scroll;
+	}
 }
+ 

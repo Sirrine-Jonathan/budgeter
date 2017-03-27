@@ -40,7 +40,7 @@ h2 {
 	box-shadow:2 2 5 4 black;
 }
 
-.balanceSection {
+#balanceSection {
 	background-color:dark-grey;
 	opacity:0.6;
 	color:white;
@@ -119,10 +119,6 @@ label, .budgetInput, .customInput {
 #graphSettings {
 	text-align:center;
 }
-
-
-
-
 
 @media (max-width: 800px) {
 	.outer-wrapper {

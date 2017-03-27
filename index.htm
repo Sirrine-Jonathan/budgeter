@@ -152,7 +152,7 @@
 				</div>
 			</div>
 			
-			<div class="balanceSection">
+			<div id="balanceSection">
 				<h2>Balance<span id="balanceTotal" class="total">0.00</span></h2>
 			</div>
 		</div>
@@ -201,9 +201,14 @@
 						<label class="underline">Section Title</label>
 						<input class="customInput" id="newTitle" type="text" placeholder="title" />
 					</div>
+					<label>Income or Expense</label>
+					<select id="incomeOrExpense">
+						<option value="expense" selected="selected">Expense</option>
+						<option value="income">Income</option>
+					</select><br />
 					<div class="customSub">
 						<label>subsection</label>
-						<input class="customInput" class="newCategory" type="text" placeholder="category" />
+						<input class="customInput newCategory" type="text" placeholder="category" />
 					</div>
 					<label>add/subtract sub sections</label>
 					<div style="display: inline-blcok; float:right;">

@@ -21,29 +21,41 @@ window.onload = function(){
 	var balanceTotal = document.getElementById('balanceTotal');
 	
 	for (s = 0; s < sections.length; s++){
-		sections[s].onclick = function(e){
-			var inputsDiv = this.parentElement.children[1];
-			var arrow = this.children[0];
-			if(inputsDiv.style.display === 'block' || inputsDiv.style.display === ''){
-				inputsDiv.style.display = 'none';
-				
-				//flip arrow vertical
-				arrow.style['-webkit-transform'] =  'rotate(90deg) scaleY(-1)';
-				arrow.style['-moz-transform'] =  'rotate(90deg) scaleY(-1)';
-				arrow.style['-o-transform'] = 'rotate(90deg) scaleY(-1)';
-				arrow.style['transform'] = 'rotate(90deg) scaleY(-1)';
+		sections[s].addEventListener('click', function(e){
+			var className = e.target.classList[0];
+			if(className === 'arrow'){
+				var title = e.target.parentElement;
 			}
 			else{
-				inputsDiv.style.display = 'block';;
-				
-				//flip arrow vertical
-				arrow.style['-webkit-transform'] =  'rotate(270deg) scaleY(1)';
-				arrow.style['-moz-transform'] =  'rotate(270deg) scaleY(1)';
-				arrow.style['-o-transform'] = 'rotate(270deg) scaleY(1)';
-				arrow.style['transform'] = 'rotate(270deg) scaleY(1)';
+				var title = e.target;
 			}
-			getTotals(document.getElementsByClassName('budgetInput'));
-		};
+			toggleSection(title);
+		});
+	};
+	
+	function toggleSection(elem){
+
+		var inputsDiv = elem.parentElement.children[1];
+		var arrow = elem.children[0];
+		if(inputsDiv.style.display === 'block' || inputsDiv.style.display === ''){
+			inputsDiv.style.display = 'none';
+			
+			//flip arrow vertical
+			arrow.style['-webkit-transform'] =  'rotate(90deg) scaleY(-1)';
+			arrow.style['-moz-transform'] =  'rotate(90deg) scaleY(-1)';
+			arrow.style['-o-transform'] = 'rotate(90deg) scaleY(-1)';
+			arrow.style['transform'] = 'rotate(90deg) scaleY(-1)';
+		}
+		else{
+			inputsDiv.style.display = 'block';;
+			
+			//flip arrow vertical
+			arrow.style['-webkit-transform'] =  'rotate(270deg) scaleY(1)';
+			arrow.style['-moz-transform'] =  'rotate(270deg) scaleY(1)';
+			arrow.style['-o-transform'] = 'rotate(270deg) scaleY(1)';
+			arrow.style['transform'] = 'rotate(270deg) scaleY(1)';
+		}
+		getTotals(document.getElementsByClassName('budgetInput'));
 	};
 	
 	/*
@@ -51,7 +63,7 @@ window.onload = function(){
 	*/
 	var inputs = document.getElementsByClassName('budgetInput');
 	for(i = 0; i < inputs.length; i++){
-		inputs[i].onkeyup = function(e){
+		inputs[i].onkeyup = function(){
 			getTotals(document.getElementsByClassName('budgetInput'));
 		}
 	}
@@ -64,7 +76,7 @@ window.onload = function(){
 		
 		for(l = 0; l < inputsArr.length; l++){
 			var display = inputs[l].parentElement.parentElement.style.display;
-				if(display === 'block' || display === ''){
+			if(display === 'block' || display === ''){
 				var type = inputs[l].getAttribute('data-type');
 				var num = parseFloat(inputs[l].value);
 				if(isNaN(num)) num = 0;
@@ -81,9 +93,9 @@ window.onload = function(){
 		}
 		
 		//updateHTML
-		incomeTotal.innerHTML = totals.income;
-		expenseTotal.innerHTML = totals.expense;
-		balanceTotal.innerHTML = totals.balance;
+		incomeTotal.innerHTML = totals.income.toFixed(2);
+		expenseTotal.innerHTML = totals.expense.toFixed(2);
+		balanceTotal.innerHTML = totals.balance.toFixed(2);
 		if(totals.balance < 0){
 			balanceTotal.style.color = 'red';
 		}
@@ -247,28 +259,28 @@ window.onload = function(){
 	*/
 	var submitSectionBtn = document.getElementById('submitSectionBtn');
 	submitSectionBtn.addEventListener('click', function(){
-	/*
-		<div class="section">
-			<div class="section-title underline">Entertainment
-				<span class="arrow">&#10149;</span>
+			/*
+			<div class="section">
+				<div class="section-title underline">Entertainment
+					<span class="arrow">&#10149;</span>
+				</div>
+				<div class="section-input">
+					<div>
+						<label>Movies</label>
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
+					</div>
+					<div>
+						<label>Games</label>
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
+					</div>
+					<div>
+						<label>Other</label>
+						<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
+					</div>
+				</div>
 			</div>
-			<div class="section-input">
-				<div>
-					<label>Movies</label>
-					<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
-				</div>
-				<div>
-					<label>Games</label>
-					<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
-				</div>
-				<div>
-					<label>Other</label>
-					<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
-				</div>
-			</div>
-		</div>		
-	*/
-	
+			*/
+		var sectionExOrIn = document.getElementById('incomeOrExpense').value;
 		var newSection = document.createElement('div');
 		newSection.classList.add('section');
 			var sectionTitle = document.createElement('div');
@@ -278,20 +290,59 @@ window.onload = function(){
 			sectionTitle.appendChild(node);
 				var span = document.createElement('span');
 				span.classList.add('arrow');
-					spanNode = document.createTextNode('&#10149');
-				span.appendChild(spanNode);
+				span.innerHTML = '&#10149';
 			sectionTitle.appendChild(span);
 		
 			var newSectionInput = document.createElement('div');
+			newSectionInput.classList.add('section-input'); 
 				//loop to add all subcategories
-				console.log(document.getElementsByClassName('newCategory'));
 				
-				
+				var arr = document.getElementsByClassName('customSub');
+				for(a = 0; a < arr.length; a++){
+					//make and add customSub input section
+					var div = document.createElement('div');
+						var label = document.createElement('label');
+							var node = document.createTextNode(arr[a].children[1].value);
+						label.appendChild(node);
+						var input = document.createElement('input');
+						
+						//input event listener
+						input.onkeyup = function(e){
+							getTotals(document.getElementsByClassName('budgetInput'));
+						}
+						
+						input.classList.add('budgetInput');
+						var dataAttr = document.createAttribute('data-type');
+						input.setAttribute('data-type',sectionExOrIn);
+						input.setAttribute('type','number');
+						input.setAttribute('placeholder','0.00');
+					div.appendChild(label);
+					div.appendChild(input);
+					newSectionInput.appendChild(div);
+				}
+		
 		newSection.appendChild(sectionTitle);
 		newSection.appendChild(newSectionInput);
+
+		//addEventListener
+		newSection.addEventListener('click', function(e){
+			var className = e.target.classList[0];
+			if(className === 'arrow'){
+				var title = e.target.parentElement;
+			}
+			else if(className === 'section-title'){
+				var title = e.target;
+			}
+			toggleSection(title);
+		});
 		
-		
-		//find place to put newSection and append i
+		//find place to put newSection and append it
+		if(sectionExOrIn === 'income'){
+			console.log(document.getElementById('mainAppOne').children);
+		}
+		else{
+			document.getElementById('mainAppOne').insertBefore(newSection, document.getElementById('balanceSection'));
+		}
 	});
 	
 	/*

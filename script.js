@@ -4,30 +4,128 @@ window.onload = function(){
 	*/
 	if (typeof(Storage) !== "undefined") {
 		var ls = window.localStorage;
+		if(ls.profile){
+			profile = ls.profile;
+			
+		}
+		else{
+			ls = {};
+			ls.profile = {
+				'users': [
+					{
+						'id': 0,
+						'username':'',
+						'password':'',
+					}
+					
+				],
+				
+				'curUser': {},
+				'months': {
+					'January': {
+						'income': [],
+						'expense': []
+					}
+				},
+				'totalUsers': 0
+			};
+		}
 	}
 	else{
-		var ls = {};	
+		//dummy object to use at each save point
+		//if client does not support local storage
+		profile = {
+			'users': [
+				{
+					'id': 0,
+					'username':'',
+					'password':'',
+				}
+				
+			],
+			
+			'curUser': {},
+			'months': {
+				'January': {
+					'income': [],
+					'expense': []
+				}
+			},
+			'totalUsers': 0
+		}; 
 	}
+	
+	if(ls.profile.curUser){
+		//updatePage();
+	}
+	
+	function updatePage(){
+		ls.profile.curUser.backgroundURL
+	}
+	
+	function newUser(username, password, background){
+		this.id = ls.profile.totalUsers;
+		this.username = username;
+		this.password = password;
+		this.backgroundURL = background;
+	}
+	
+	document.getElementById('registerBtn').addEventListener('click', function(){
+		var usernameNew = document.getElementById('passHTML').value;
+		var passwordNew = document.getElementById('userHTML').value;
+		
+		//validation
+		
+	
+		//success
+		
+		//var userToSubmit = newUser(usernameNew, passwordNew, 'http://i.imgur.com/bgkdbSo.jpg');
+		//ls.profile.users.push(userToSubmit);
+		
+		//run below line if register logs in user
+		//ls.profile.curUser = userToSubmit;
+		
+			//messge errorMsg "regeistered!!"
+			//ls.userData.username = username;
+			//ls.userData.password = password;
+
+	});
 	
 	/*
 		Login Btn
 	*/
 	document.getElementById('loginBtn').addEventListener('click', function(){
+		//var username = documen.
+		//var password = docu.
+		
+		/*
+			validation
+		*/
+		
+		
 		
 		/*
 			Success
 		*/
 		//load user data
 		//do animation
+		//login
+		
+		
 		
 		setTimeout(function(){
 			document.getElementById('login-wrapper').style.display = 'none';
 			document.getElementById('budgeter5000').style.display = 'inline-block';
+			//ls.userData.username = username;
 		}, 1000);
 		
 		/*
 			Fail
 		*/
+		
+		//send errors
+		//document.getElementById('errorMsg').innerHTML = '';
+		
 	});
 	
 	/*
@@ -186,7 +284,10 @@ window.onload = function(){
 		
 		//backgrounds.push(url);
 		document.getElementsByTagName('html')[0].style.backgroundImage = 'URL('+url+')';
-		document.getElementsByTagName('body')[0].style.backgroundImage = 'URL('+url+')';		
+		document.getElementsByTagName('body')[0].style.backgroundImage = 'URL('+url+')';
+		
+		
+		
 	});
 	
 	document.getElementById('undoBackground').addEventListener('click', function(){

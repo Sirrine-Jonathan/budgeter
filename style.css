@@ -28,7 +28,7 @@ body {
 	height:100%;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[] {
 	padding: 10px;
 	border: none;
 	border-bottom: solid 2px #c9c9c9;
@@ -171,6 +171,16 @@ input[type="range"] {
 @media (max-width: 800px) {
 	.outer-wrapper {
 		width:100%;
+	}
+	
+	#appTitle {
+		font-size:2em;
+	}
+	
+	#userHtml, #passHtml  {
+		margin: 0 auto;
+		display: block;
+		
 	}
 	
 	.content-wrapper {

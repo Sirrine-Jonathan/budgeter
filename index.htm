@@ -12,11 +12,13 @@
 </div>
 <div class="outer-wrapper">
 	<div class="content-wrapper">
-		<div id="mainApp">
+		<div id="mainAppOne">
+		
 			<h1 id="monthDisplay"></h1>
 			<h2>Income<span id="incomeTotal" class="total">0.00</span></h2>
+			
 			<div class="section">
-				<div class="section-title underline"">Person 1
+				<div class="section-title underline">Person 1
 					<span class="arrow">&#10149;</span>
 					<!--http://htmlarrows.com/arrows/-->
 				</div>
@@ -31,9 +33,27 @@
 					</div>
 				</div>
 			</div>
+			
+			<div class="section">
+				<div class="section-title underline">Person 2
+					<span class="arrow">&#10149;</span>
+					<!--http://htmlarrows.com/arrows/-->
+				</div>
+				<div class="section-input">
+					<div>
+						<label>Salary</label>
+						<input class="budgetInput" data-type="income" type="number" placeholder="0.00" />
+					</div>
+					<div>
+						<label>Other</label>
+						<input class="budgetInput" data-type="income" type="number" placeholder="0.00" />
+					</div>
+				</div>
+			</div>
+			
 			<h2>Expenses<span id="expenseTotal" class="total">0.00</span></h2>
 			<div class="section">
-				<div class="section-title underline"">Home
+				<div class="section-title underline">Home
 					<span class="arrow">&#10149;</span>
 				</div>
 				<div class="section-input">
@@ -51,8 +71,9 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="section">
-				<div class="section-title underline"">Entertainment
+				<div class="section-title underline">Entertainment
 					<span class="arrow">&#10149;</span>
 				</div>
 				<div class="section-input">
@@ -70,8 +91,9 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="section">
-				<div class="section-title underline"">Entertainment
+				<div class="section-title underline">Entertainment
 					<span class="arrow">&#10149;</span>
 				</div>
 				<div class="section-input">
@@ -89,8 +111,9 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="section">
-				<div class="section-title underline"">Entertainment
+				<div class="section-title underline">Entertainment
 					<span class="arrow">&#10149;</span>
 				</div>
 				<div class="section-input">
@@ -108,8 +131,9 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="section">
-				<div class="section-title underline"">Entertainment
+				<div class="section-title underline">Entertainment
 					<span class="arrow">&#10149;</span>
 				</div>
 				<div class="section-input">
@@ -136,30 +160,36 @@
 </div>
 <div class="outer-wrapper" style="float:right;">
 	<div class="content-wrapper">
-		<div id="mainApp">
+		<div id="mainAppTwo">
 			<div class="section">
 				<h2 class="section-title">Settings
 					<span class="arrow">&#10149;</span>
 				</h2>
-				<label>Month</label>
-				<select name="month" id="month">
-					<option value="Jan">January</option>
-					<option value="Feb">February</option>
-					<option value="Mar">March</option>
-					<option value="Apr">April</option>
-					<option value="May">May</option>
-					<option value="Jun">June</option>
-					<option value="Jul">July</option>
-					<option value="Aug">August</option>
-					<option value="Oct">October</option>
-					<option value="Sep">September</option>
-					<option value="Nov">November</option>
-					<option value="Dec">December</option>
-				</select><br />
-				<input type="url" id="backgroundURL" placeholder="background image URL"/>
-				<div class="btn" id="changeBackground">Change Background</div>
-				<div class="btn" id="undoBackground">Undo</div><br />
-				<div class="btn" id="save">Save Progress</div>
+				<div class="secion-input">
+					<label>Month</label>
+					<select name="month" id="month">
+						<option value="Jan">January</option>
+						<option value="Feb">February</option>
+						<option value="Mar">March</option>
+						<option value="Apr">April</option>
+						<option value="May">May</option>
+						<option value="Jun">June</option>
+						<option value="Jul">July</option>
+						<option value="Aug">August</option>
+						<option value="Oct">October</option>
+						<option value="Sep">September</option>
+						<option value="Nov">November</option>
+						<option value="Dec">December</option>
+					</select><br />
+					<label>transparency</label><input id="opacityCntrl" type="range" min="0" max="1" step="0.01"><br />
+					<label>Red</label><input id="redCntrl" type="range" min="0" max="255" step="1" value="0"><br />
+					<label>Green</label><input id="greenCntrl" type="range" min="0" max="255" step="1" value="0"><br />
+					<label>Blue</label><input id="blueCntrl" type="range" min="0" max="255" step="1" value="50"><br />
+					<input type="url" id="backgroundURL" placeholder="background image URL"/>
+					<div class="btn" id="changeBackground">Change Background</div>
+					<div class="btn" id="undoBackground">Undo</div><br />
+					<div class="btn" id="save">Save Progress</div>
+				</div>
 			</div>
 			
 			<div class="section">
@@ -169,26 +199,63 @@
 				<div class="section-input">
 					<div>
 						<label class="underline">Section Title</label>
-						<input class="customInput" class="newTitle" type="text" placeholder="title" />
+						<input class="customInput" id="newTitle" type="text" placeholder="title" />
 					</div>
 					<div class="customSub">
 						<label>subsection</label>
 						<input class="customInput" class="newCategory" type="text" placeholder="category" />
 					</div>
-					<div class="btn" id="addSubBtn">Add Sub Section +</div>
-					<div class="btn" id="subSubBtn">Remove Sub Section -</div><br />
+					<label>add/subtract sub sections</label>
+					<div style="display: inline-blcok; float:right;">
+						<div class="btn" id="addSubBtn">+</div>
+						<div class="btn" id="subSubBtn">-</div>
+					</div><br />
 					<div class="btn" id="submitSectionBtn">Submit Section</div>
 				</div>
 			</div>
 			
 			<div class="section">
-				<h2>Life advice</h2>
+				<h2>Life Advice</h2>
 				<div id="advice"></div>
 			</div>
 			
 			<div class="section">
 				<h2>Graph</h2>
-				<canvas id="canvas">hey</canvas>
+				
+				<div id="graphSettings">
+					<label>Start</label>
+					<select id="startMonth">
+					<option value="Jan">January</option>
+					<option value="Feb">February</option>
+					<option value="Mar">March</option>
+					<option value="Apr">April</option>
+					<option value="May">May</option>
+					<option value="Jun">June</option>
+					<option value="Jul">July</option>
+					<option value="Aug">August</option>
+					<option value="Sep">September</option>
+					<option value="Oct">October</option>
+					<option value="Nov">November</option>
+					<option value="Dec">December</option>
+					</select>
+
+					<label>End</label>
+					<select id="endMonth">
+					<option value="Jan">January</option>
+					<option value="Feb">February</option>
+					<option value="Mar">March</option>
+					<option value="Apr">April</option>
+					<option value="May">May</option>
+					<option value="Jun">June</option>
+					<option value="Jul">July</option>
+					<option value="Aug">August</option>
+					<option value="Sep">September</option>
+					<option value="Oct">October</option>
+					<option value="Nov">November</option>
+					<option value="Dec">December</option>
+					</select><br />
+				</div>
+				<canvas id="canvas" width="500">hey</canvas>
 			</div>			
 		</div>
 	</div>

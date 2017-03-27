@@ -21,7 +21,7 @@ html, body {
 	margin:0 auto;
 }
 
-#mainApp {
+#mainAppOne, #mainAppTwo  {
 	box-sizing:border-box;
 	font-family: 'Titillium Web', sans-serif;
 	margin:20px 0 20px 0;
@@ -32,8 +32,7 @@ h2 {
 }
 
 .section {
-	background-color:black;
-	opacity:0.6;
+	background-color:rgba(0,0,0,0.3);
 	color:white;
 	padding: 5px; 
 	margin: 5px;
@@ -63,14 +62,11 @@ h2 {
 #addSubBtn { 
 	display:inline-block;
 	box-sizing:border-box;
-	width:48%; 
 }
 
 #subSubBtn {
 	display:inline-block; 
 	box-sizing:border-box;
-	width:48%; 
-	float:right;
 }
 
 .arrow {	
@@ -100,17 +96,33 @@ label, .budgetInput, .customInput {
 
 
 .btn {
-	display:inline-block;
-	background-color:black;
-	border:1px solid grey;
-	border-radius:5px;
-	padding:0 10px 0 10px;
-	cursor:pointer;
+	display: inline-block;
+	border: 1px solid lightgrey;
+	box-shadow: 1px 2px 0 0 black;
+	border-radius: 5px;
+	padding: 0 10px 0 10px;
+	cursor: pointer;
+	transition: background-color 1.5s ease-in;
+	transition: box-shadow 1s;
 }
 
 .btn:hover {
-	background-color:grey;
+	background-color:rgba(0,0,0,0.2);
+	box-shadow:3px 4px 0 0 black;
 }
+#canvas {
+	background-color:white;
+	display:block;
+	margin:0 auto;
+}
+
+#graphSettings {
+	text-align:center;
+}
+
+
+
+
 
 @media (max-width: 800px) {
 	.outer-wrapper {

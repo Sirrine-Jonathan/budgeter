@@ -1,7 +1,13 @@
-/*
-	Toggle Expense Sections
-*/
 window.onload = function(){
+	/*
+		
+	*/
+	if (typeof(Storage) !== "undefined") {
+		var ls = window.localStorage;
+	}
+	else{
+		var ls = {};	
+	}
 	/*
 		Toggle section display
 	*/
@@ -82,7 +88,7 @@ window.onload = function(){
 		else{
 			balanceTotal.style.color = 'white';
 		}
-		//console.log(totals);
+		ls.totals = totals;
 	}
 	
 	/*
@@ -153,7 +159,6 @@ window.onload = function(){
 	/*
 		set month
 	*/
-	
 	function setMonth(){
 		var date = new Date();
 		var month = date.getMonth();
@@ -202,6 +207,135 @@ window.onload = function(){
 		}
 	}
 	setMonth();
+	
+	/*
+		Add/Subtract Sub Sections
+	*/
+	var addSubBtn = document.getElementById('addSubBtn');
+	var subSubBtn = document.getElementById('subSubBtn');
+	
+	addSubBtn.addEventListener('click', function(){
+
+		/*ADD ELEMENT*/
+		
+		//used to know where to put element
+		var customSubsArr = document.getElementsByClassName('customSub');
+		var lastCustomSub = document.getElementsByClassName('customSub')[customSubsArr.length - 1];
+		
+		//make outer div
+		var newCustomSub = document.createElement('div');
+		newCustomSub.classList.add('customSub');
+		
+		//make label
+		var newLabel = document.createElement('label');
+		var label = document.createTextNode('subsection');
+		newLabel.appendChild(label);
+		
+		//make input
+		var input = document.createElement('input');
+		input.classList.add('customInput');
+		input.setAttribute("id", "newCategory");
+		input.setAttribute("type", "text");
+		input.setAttribute("placeholder", "category");
+		
+		//combine elements
+		newCustomSub.appendChild(newLabel);
+		newCustomSub.appendChild(input);
+		
+		//insert after last custom sub
+		lastCustomSub.parentNode.insertBefore(newCustomSub, lastCustomSub.nextSibling);
+		
+		
+	});
+	
+	subSubBtn.addEventListener('click', function(){
+		/*Remove ELEMENT*/
+		
+		//used to know where to put element
+		var customSubsArr = document.getElementsByClassName('customSub');
+		var lastCustomSub = document.getElementsByClassName('customSub')[customSubsArr.length - 1];
+		if(customSubsArr.length > 1){
+			lastCustomSub.remove();
+		}
+		
+	});
+	
+	/*
+		Create Custom Section
+	*/
+	var submitSectionBtn = document.getElementById('submitSectionBtn');
+	submitSectionBtn.addEventListener('click', function(){
+	/*
+		<div class="section">
+			<div class="section-title underline"">Entertainment
+				<span class="arrow">&#10149;</span>
+			</div>
+			<div class="section-input">
+				<div>
+					<label>Movies</label>
+					<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
+				</div>
+				<div>
+					<label>Games</label>
+					<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
+				</div>
+				<div>
+					<label>Other</label>
+					<input class="budgetInput" data-type="expense" type="number" placeholder="0.00" />
+				</div>
+			</div>
+		</div>		
+	*/
+	
+		var newSection = document.createElement('div');
+		newSection.classList.add('section');
+		
+		var sectionTitle
+	});
+	
+	/*
+		Generate graph
+	*/
+	
+	if(true){
+		
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		
+		//find out how many months have data
+		
+		var numberOfMonths = 2;
+		
+		//divide canvas width by the number of months that have data
+		var canvasWidth = document.getElementById('canvas').width;
+		var canvasHeight = document.getElementById('canvas').height;
+		var sectionWidth = canvasWidth / numberOfMonths;
+		
+		//divide sections widths by 2 to get increments
+		var increments = sectionWidth / 2;
+		
+		for(i = increments; i <= (increments * numberOfMonths); i += increments){
+			ctx.font = '12px times'
+			ctx.color = 'white';
+			ctx.fillText('month', i, canvasHeight - 5, sectionWidth);
+		}
+
+		//find max value for income, expense, or balance between all months to set range
+		
+		
+		//draw text to label months of graph along width dividers
+		
+
+		//draw range along left side of canvas
+
+		//start income line at first month income value
+
+		//draw line to next month income value
+
+		//continue until end month
+
+		//continue drawing lines for balance and expenses	
+	}
 };
 
 window.onresize = resize 
